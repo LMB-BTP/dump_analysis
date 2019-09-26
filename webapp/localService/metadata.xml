@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0" xmlns:sap="http://www.sap.com/Protocols/SAPData"
+	xmlns:ux="http://www.sap.com/Protocols/OData4SAP/UX" xmlns:gp="http://www.sap.com/Protocols/SAPData/GenericPlayer">
+	<edmx:DataServices m:DataServiceVersion="2.0" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+		<Schema Namespace="ZGW_APP_XX_0001_SRV" xmlns="http://schemas.microsoft.com/ado/2008/09/edm" sap:schema-version="1" xml:lang="en">
+			<EntityType Name="Dump" sap:content-version="1">
+				<Key><PropertyRef Name="TransactionId"/><PropertyRef Name="Date"/></Key><Property Name="TransactionId" Type="Edm.String" Nullable="false" MaxLength="32" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:unicode="false"/><Property Name="Date" Type="Edm.DateTime" Nullable="false" Precision="7" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:unicode="false"/><Property Name="Time" Type="Edm.Time" Nullable="false" Precision="0" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:unicode="false"/><Property Name="Host" Type="Edm.String" Nullable="false" MaxLength="32" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:unicode="false"/><Property Name="User" Type="Edm.String" Nullable="false" MaxLength="12" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:unicode="false"/><Property Name="DumpId" Type="Edm.String" Nullable="false" MaxLength="30" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:unicode="false"/><Property Name="ProgramName" Type="Edm.String" Nullable="false" MaxLength="40" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:unicode="false"/><Property Name="IncludeName" Type="Edm.String" Nullable="false" MaxLength="40" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:unicode="false"/><Property Name="LineNumber" Type="Edm.String" Nullable="false" MaxLength="5" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false" sap:unicode="false"/><Property Name="SystemId" Type="Edm.String" Nullable="false" MaxLength="8" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false" sap:unicode="false"/></EntityType>
+			<EntityContainer Name="ZGW_APP_XX_0001_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="Dumps" EntityType="ZGW_APP_XX_0001_SRV.Dump" sap:content-version="1" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false"/></EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self"
+				href="https://gwaas-n3b66d216.br1.hana.ondemand.com:443/sap/opu/odata/SAP/ZGW_APP_XX_0001_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
+				href="https://gwaas-n3b66d216.br1.hana.ondemand.com:443/sap/opu/odata/SAP/ZGW_APP_XX_0001_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:mvc="sap.m.mvc" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog resizable="true" title="{i18n>Settings}">
+		<content>
+			<form:SimpleForm title="{i18n>SettingsFormTitle}">
+				<Label text="{i18n>SettingsIntervalComparison}"/>
+				<StepInput value="{LocalData>/chart/intervalMinutesComparison}" min="1" max="180" step="5"
+					enabled="{= ${LocalData>/chart/autoRefresh} === true ? false : true }" description="{i18n>SettingsMinutes}"/>
+					
+				<Label text="{i18n>SettingsRefreshInterval}"/>
+				<StepInput value="{LocalData>/chart/refreshSeconds}" min="15" max="300" step="5"
+					enabled="{= ${LocalData>/chart/autoRefresh} === true ? false : true }" description="{i18n>SettingsSeconds}" />
+					
+				<Label text="{i18n>SettingsRedLightStart}"/>
+				<StepInput value="{LocalData>/chart/redLightStartTemp}"  max="100" min="0" step="0.5"
+					enabled="{= ${LocalData>/chart/autoRefresh} === true ? false : true }" 
+					 displayValuePrecision="1" description="%"/>
+					
+				<Label text="{i18n>SettingsOnOff}"/>
+				<Switch state="{LocalData>/chart/autoRefresh}" change="handleAutoRefresh"/>
+				
+			</form:SimpleForm>
+		</content>
+		<buttons>
+			<Button type="Reject" text="Close" press="handleClosePress"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,35 @@
+{
+    "application": {
+        "id": "",
+        "title": "Cross Dump analysis",
+        "description": "Cross Dump analysis",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/",
+        "appUrl": "#dump_analysis-Display",
+        "navigationComponentName": "LMBR_CUSTOMER_APP.dump_analisys",
+        "intentSemanticObject": "dump_analysis",
+        "intentAction": "Display",
+        "html5ApplicationName": "dumpanalysis",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "f6b52d7e-a996-4c37-9e64-f2712e82da16-1567176107854"
+        ],
+        "contentPackages": [
+            "cedf6c06-0e3d-4435-8e75-4368cb76aec4-1567176035626"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "SAP Dumps",
+        "subtitle": "Cross Dump analysis",
+        "searchKeywords": "SAP Dumps,Cross Dump analysis",
+        "displayIconUrl": "sap-icon://filter-analytics",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

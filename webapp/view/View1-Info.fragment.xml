@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:mvc="sap.m.mvc" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog resizable="true" title="{i18n>Info}" >
+		<content>
+			<form:SimpleForm title="{i18n>InfoFormTitle}">
+				<List items="{/SystemConfigs}">
+					<StandardListItem title="{Sysid}" 
+									  icon="{= ${Active} === true ? 'sap-icon://accept' : 'sap-icon://cancel' }" 
+									  infoState="{= ${Active} === true ? 'Success' : 'None' }" 
+									  description="{Descr}" 
+									  info="{Destination}"/>
+				</List>
+			</form:SimpleForm>
+		</content>
+		<buttons>
+			<Button type="Reject" text="Close" press="handleClosePress"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

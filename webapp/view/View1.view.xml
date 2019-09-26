@@ -1,0 +1,180 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:viz="sap.viz.ui5.controls" xmlns:data="sap.viz.ui5.data"
+	xmlns:feed="sap.viz.ui5.controls.common.feeds" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout"
+	xmlns:si="sap.suite.ui.commons.statusindicator" controllerName="LMBR_CUSTOMER_APP.dump_analisys.controller.View1" displayBlock="true"
+	xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<headerContent>
+						<Button press="handleSettingsPress" icon="sap-icon://settings"/>
+						<Button press="handleInfoPress" icon="sap-icon://validate"/>
+					</headerContent>
+					<content>
+						<!---->
+						<!---->
+						<!---->
+						<!--Elements avaiable for MOBILE-->
+						<!---->
+						<!---->
+						<layout:BlockLayout visible="{= ${device>/system/desktop} === true ? false : true }" id="BlockLayout" background="{/selectedBackground}">
+							<layout:BlockLayoutRow accentCells="Accent1">
+								<layout:BlockLayoutCell width="100%">
+									<!---->
+									<!--VizFrame :: By System (Quantity) at Bar Formmat-->
+									<!---->
+									<viz:VizFrame id="MobileChart01" vizType="bar" vizProperties="{LocalData>/chart/vizPropertiesChart01}" height="400px" width="100%">
+										<viz:dataset>
+											<data:FlattenedDataset data="{LocalData>/BySystems}">
+												<data:dimensions>
+													<data:DimensionDefinition identity="DimDefSystem" value="{SystemId}" dataType="string"></data:DimensionDefinition>
+												</data:dimensions>
+												<data:measures>
+													<data:MeasureDefinition identity="MeaDefBefore" name="{i18n>ChartBefore}" value="{QtyAnterior}"></data:MeasureDefinition>
+													<data:MeasureDefinition identity="MeaDefActual" name="{i18n>ChartActual}" value="{QtyAtual}"></data:MeasureDefinition>
+												</data:measures>
+											</data:FlattenedDataset>
+										</viz:dataset>
+										<viz:feeds>
+											<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefSystem"></feed:FeedItem>
+											<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefBefore"></feed:FeedItem>
+											<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefActual"></feed:FeedItem>
+										</viz:feeds>
+									</viz:VizFrame>
+								</layout:BlockLayoutCell>
+							</layout:BlockLayoutRow>
+							
+							<layout:BlockLayoutRow accentCells="Accent2">
+								<layout:BlockLayoutCell width="100%">
+									<!---->
+									<!--VizFrame :: By Sistem (Growing (Qty) at Bar Formmat-->
+									<!---->
+									<viz:VizFrame id="MobileChart02" vizType="column" vizProperties="{LocalData>/chart/vizPropertiesChart02}" height="400px" width="100%">
+										<viz:dataset>
+											<data:FlattenedDataset data="{LocalData>/BySystems}">
+												<data:dimensions>
+													<data:DimensionDefinition identity="DimDefSystem" value="{SystemId}" dataType="string"></data:DimensionDefinition>
+												</data:dimensions>
+												<data:measures>
+													<data:MeasureDefinition identity="MeaDefGrowth" name="{i18n>ChartGrowth}" value="{DifQty}"></data:MeasureDefinition>
+												</data:measures>
+											</data:FlattenedDataset>
+										</viz:dataset>
+										<viz:feeds>
+											<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefSystem"></feed:FeedItem>
+											<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefGrowth"></feed:FeedItem>
+										</viz:feeds>
+									</viz:VizFrame>
+								</layout:BlockLayoutCell>
+								<layout:BlockLayoutCell width="100%">
+									<!---->
+									<!--VizFrame :: By Sistem (Growing (%)) at Bar Formmat-->
+									<!---->
+									<viz:VizFrame id="MobileChart03" vizType="combination" vizProperties="{LocalData>/chart/vizPropertiesChart03}" height="400px" width="100%">
+										<viz:dataset>
+											<data:FlattenedDataset data="{LocalData>/BySystems}">
+												<data:dimensions>
+													<data:DimensionDefinition identity="DimDefSystem" value="{SystemId}" dataType="string"></data:DimensionDefinition>
+												</data:dimensions>
+												<data:measures>
+													<data:MeasureDefinition identity="MeaDefGrowth" name="{i18n>ChartGrowth}" value="{DifPrc}"></data:MeasureDefinition>
+													<data:MeasureDefinition identity="LimitGrowth" name="{i18n>ChartGrowth}" value="{LocalData>/chart/redLightStart}"></data:MeasureDefinition>													
+												</data:measures>
+											</data:FlattenedDataset>
+										</viz:dataset>
+										<viz:feeds>
+											<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefSystem"></feed:FeedItem>
+											<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefGrowth"></feed:FeedItem>
+											<feed:FeedItem uid="valueAxis" type="Measure" values="LimitGrowth"></feed:FeedItem>												
+										</viz:feeds>
+									</viz:VizFrame>
+								</layout:BlockLayoutCell>
+							</layout:BlockLayoutRow>
+						</layout:BlockLayout>
+						<!---->
+						<!---->
+						<!---->
+						<!--Elements avaiable for DESKTOP-->
+						<!---->
+						<!---->
+						<!---->
+						<VBox visible="{= ${device>/system/desktop} === true ? true : false }">
+							<!---->
+							<!--VizFrame :: By System (Quantity) at Bar Formmat-->
+							<!---->
+							<viz:VizFrame id="DesktopChart01" vizType="bar" vizProperties="{LocalData>/chart/vizPropertiesChart01}" height="400px" width="100%">
+								<viz:dataset>
+									<data:FlattenedDataset data="{LocalData>/BySystems}">
+										<data:dimensions>
+											<data:DimensionDefinition identity="DimDefSystem" value="{SystemId}" dataType="string"></data:DimensionDefinition>
+										</data:dimensions>
+										<data:measures>
+											<data:MeasureDefinition identity="MeaDefBefore" name="{i18n>ChartBefore}" value="{QtyAnterior}"></data:MeasureDefinition>
+											<data:MeasureDefinition identity="MeaDefActual" name="{i18n>ChartActual}" value="{QtyAtual}"></data:MeasureDefinition>
+										</data:measures>
+									</data:FlattenedDataset>
+								</viz:dataset>
+								<viz:feeds>
+									<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefSystem"></feed:FeedItem>
+									<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefBefore"></feed:FeedItem>
+									<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefActual"></feed:FeedItem>
+								</viz:feeds>
+							</viz:VizFrame>
+							<HBox>
+							
+								<!---->
+								<!--VizFrame :: By Sistem (Growing (Qty) at Bar Formmat-->
+								<!---->
+								<viz:VizFrame id="DesktopChart02" vizType="column" vizProperties="{LocalData>/chart/vizPropertiesChart02}" height="400px">
+									<viz:dataset>
+										<data:FlattenedDataset data="{LocalData>/BySystems}">
+											<data:dimensions>
+												<data:DimensionDefinition identity="DimDefSystem" value="{SystemId}" dataType="string"></data:DimensionDefinition>
+											</data:dimensions>
+											<data:measures>
+												<data:MeasureDefinition identity="MeaDefGrowth" name="{i18n>ChartGrowth}" value="{DifQty}"></data:MeasureDefinition>
+											</data:measures>
+										</data:FlattenedDataset>
+									</viz:dataset>
+									<viz:feeds>
+										<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefSystem"></feed:FeedItem>
+										<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefGrowth"></feed:FeedItem>
+									</viz:feeds>
+								</viz:VizFrame>
+								<!---->
+								<!--VizFrame :: By Sistem (Growing (%)) at Bar Formmat-->
+								<!---->
+								<viz:VizFrame id="DesktopChart03" vizType="combination" vizProperties="{LocalData>/chart/vizPropertiesChart03}" height="400px">
+									<viz:dataset>
+										<data:FlattenedDataset data="{LocalData>/BySystems}">
+											<data:dimensions>
+												<data:DimensionDefinition identity="DimDefSystem" value="{SystemId}" dataType="string"></data:DimensionDefinition>
+											</data:dimensions>
+											<data:measures>
+												<data:MeasureDefinition identity="MeaDefGrowth" name="{i18n>ChartGrowth}" value="{DifPrc}"></data:MeasureDefinition>
+												<data:MeasureDefinition identity="LimitGrowth" name="{i18n>ChartGrowth}" value="{LocalData>/chart/redLightStart}"></data:MeasureDefinition>
+											</data:measures>
+										</data:FlattenedDataset>
+									</viz:dataset>
+									<viz:feeds>
+										<feed:FeedItem uid="categoryAxis" type="Dimension" values="DimDefSystem"></feed:FeedItem>
+										<feed:FeedItem uid="valueAxis" type="Measure" values="MeaDefGrowth"></feed:FeedItem>
+										<feed:FeedItem uid="valueAxis" type="Measure" values="LimitGrowth"></feed:FeedItem>
+									</viz:feeds>
+								</viz:VizFrame>
+							</HBox>								
+						</VBox>
+					</content>
+					<footer>
+						<Bar>
+							<contentRight>
+								<Label text="{i18n>LastUpdate}"/>
+								<Text text="{LocalData>/chart/lastDateTime}"/>
+							</contentRight>
+						</Bar>
+					</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
