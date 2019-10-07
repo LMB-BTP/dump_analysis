@@ -51,4 +51,5 @@
       "description": "SAP_Gateway"
     }
   ],
-  "sendWelcomeFileRedirect": true }
+  "sendWelcomeFileRedirect": true 
+}
